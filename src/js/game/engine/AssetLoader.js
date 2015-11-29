@@ -7,7 +7,8 @@ var towngame;
         AssetLoader.LoadAssets = function (callback) {
             var assetsToLoad = [
                 "img/logo.png", "img/hackwestern_logo.png", "maps/sample_indoor.tmx", "maps/sample_map.tmx",
-                "img/clouds.jpg", "img/musicon.png", "img/musicoff.png", "img/wrench.png", "img/yellowSheet.png"
+                "img/clouds.jpg", "img/musicon.png", "img/musicoff.png", "img/wrench.png", "img/yellowSheet.png",
+                "img/roguelikeSheet_transparent.png", "img/TileA5.png", "img/backplate.svg"
             ];
             assetsToLoad.forEach(function (asset) { return PIXI.loader.add(asset); });
             PIXI.loader.once('complete', callback);
