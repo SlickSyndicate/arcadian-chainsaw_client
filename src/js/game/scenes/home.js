@@ -23,6 +23,14 @@ var towngame;
             var bg = PIXI.Sprite.fromImage("./img/clouds.jpg");
             bg.width = towngame.ScenesManager.width;
             bg.height = towngame.ScenesManager.height;
+            var socket = io.connect();
+            var checkvalue = 0;
+            socket.on('confirmation', function (data) {
+                checkvalue = (data.confirmation);
+                socket.emit('feedback', { 'feedback': checkvalue });
+                socket.on('shutconnection', function () {
+                });
+            });
             var graphics = new PIXI.Graphics();
             var rectPos = towngame.ScenesManager.width / 3;
             var rectSize = 400;
@@ -38,14 +46,15 @@ var towngame;
             });
             soundOn.position.x = towngame.ScenesManager.width - soundOn.width;
             soundOn.position.y = 0;
-            soundOff.position.x = towngame.ScenesManager.width - soundOn.width;
+            soundOff.position.x = towngame.ScenesManager.width - soundOff.width;
             soundOff.position.y = 0;
             soundOff.visible = false;
             options.interactive = true;
             options.on('click', function (mouseData) {
                 console.log("options pressed");
+                socket.emit('options');
             });
-            options.position.x = towngame.ScenesManager.width - soundOn.width - soundOff.width;
+            options.position.x = towngame.ScenesManager.width - soundOn.width - options.width;
             options.position.y = 0;
             button1.scale.set(1.5, 1.5);
             button1.interactive = true;
@@ -53,6 +62,7 @@ var towngame;
             button1.position.y = rectPos;
             button1.on('click', function (mouseData) {
                 console.log("button 1 presses");
+                socket.emit('play');
             });
             button2.scale.set(1.5, 1.5);
             button2.interactive = true;
@@ -60,6 +70,7 @@ var towngame;
             button2.position.y = rectPos + 100;
             button2.on('click', function (mouseData) {
                 console.log("button 2 pressed");
+                socket.emit('controls');
             });
             graphics.beginFill(0x9995ae);
             graphics.lineStyle(10, 0xc3e1f9, 1);
