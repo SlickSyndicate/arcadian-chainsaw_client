@@ -48,10 +48,10 @@ module towngame {
 
 
             */
-            var socket = io.connect();
+            //var socket = io.connect(); //<-Commented out but actually needed here, io is red due to the absence of declaration
             var checkvalue = 0;//initiates it, shoud NOT be 0 when returned
 
-            socket.on('confirmation', function (data) {
+            socket.on('confirmation', function (data:any) {
                 //check for correct connection
                 checkvalue = (data.confirmation);
                 socket.emit('feedback', {'feedback': checkvalue});

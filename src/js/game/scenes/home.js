@@ -23,7 +23,6 @@ var towngame;
             var bg = PIXI.Sprite.fromImage("./img/clouds.jpg");
             bg.width = towngame.ScenesManager.width;
             bg.height = towngame.ScenesManager.height;
-            var socket = io.connect();
             var checkvalue = 0;
             socket.on('confirmation', function (data) {
                 checkvalue = (data.confirmation);
