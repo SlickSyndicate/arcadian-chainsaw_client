@@ -6,7 +6,7 @@ module towngame {
     export class HomeScene extends Scene {
         constructor() {
             super();
-            this.setBackgroundColor(0xffffff);
+            //this.setBackgroundColor(0xffffff);
 
             var soundOn = PIXI.Sprite.fromImage("img/musicon.png");
             var soundOff = PIXI.Sprite.fromImage("img/musicoff.png");
@@ -14,7 +14,9 @@ module towngame {
             var multiplayer = PIXI.Texture.fromImage("img/yellowSheet.png");
             var button1 = new Sprite(new PIXI.Texture(multiplayer, new PIXI.Rectangle(0, 0, 190, 49)));
             var button2 = new Sprite(new PIXI.Texture(multiplayer, new PIXI.Rectangle(0, 0, 190, 49)));
-            var text = new PIXI.Text("Slick Syndicate", {font: "50px Arial", fill: "red"});
+            var text = new PIXI.Text("Arcadian-Chainsaw", {font: "50px Arial", fill: "black"});
+            var playtext = new PIXI.Text("Play", {font:"40px Arial", fill: "black"});
+            var controltext = new PIXI.Text("Controls", {font:"40px Arial", fill: "black"});
             var bg = PIXI.Sprite.fromImage("img/clouds.jpg");
             bg.width = ScenesManager.width;
             bg.height = ScenesManager.height;
@@ -57,6 +59,9 @@ module towngame {
             button1.on('click', function (mouseData:any) {
                 console.log("button 1 presses");
             });
+            playtext.position.x = rectPos + 90;
+            playtext.position.y = rectPos + 10;
+
             button2.scale.set(1.5, 1.5);
             button2.interactive = true;
             button2.position.x = rectPos + 80;
@@ -64,12 +69,14 @@ module towngame {
             button2.on('click', function (mouseData:any) {
                 console.log("button 2 pressed");
             });
+            controltext.position.x = rectPos + 90;
+            controltext.position.y = rectPos + 110;
 
             graphics.beginFill(0x9995ae);
             graphics.lineStyle(10, 0xc3e1f9, 1);
             graphics.drawRoundedRect(rectPos, rectPos / 2, rectSize + 50, rectSize / 2, 5);
             graphics.endFill();
-            text.x = rectPos / 2 + 300;
+            text.x = rectPos / 2 + 235;
             text.y = rectPos / 2;
 
             this.addChild(bg);
@@ -80,6 +87,8 @@ module towngame {
             this.addChild(button1);
             this.addChild(button2);
             this.addChild(text);
+            this.addChild(playtext);
+            this.addChild(controltext);
         }
 
         public update() {
