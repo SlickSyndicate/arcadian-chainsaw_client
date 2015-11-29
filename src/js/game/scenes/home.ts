@@ -8,14 +8,14 @@ module towngame {
             super();
             this.setBackgroundColor(0xffffff);
 
-            var soundOn = PIXI.Sprite.fromImage("./img/musicon.png");
-            var soundOff = PIXI.Sprite.fromImage("./img/musicoff.png");
-            var options = PIXI.Sprite.fromImage("./img/wrench.png");
-            var multiplayer = PIXI.Texture.fromImage("./img/yellowSheet.png");
+            var soundOn = PIXI.Sprite.fromImage("img/musicon.png");
+            var soundOff = PIXI.Sprite.fromImage("img/musicoff.png");
+            var options = PIXI.Sprite.fromImage("img/wrench.png");
+            var multiplayer = PIXI.Texture.fromImage("img/yellowSheet.png");
             var button1 = new Sprite(new PIXI.Texture(multiplayer, new PIXI.Rectangle(0, 0, 190, 49)));
             var button2 = new Sprite(new PIXI.Texture(multiplayer, new PIXI.Rectangle(0, 0, 190, 49)));
             var text = new PIXI.Text("Slick Syndicate", {font: "50px Arial", fill: "red"});
-            var bg = PIXI.Sprite.fromImage("./img/clouds.jpg");
+            var bg = PIXI.Sprite.fromImage("img/clouds.jpg");
             bg.width = ScenesManager.width;
             bg.height = ScenesManager.height;
 

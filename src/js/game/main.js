@@ -5,6 +5,7 @@ towngame.AssetLoader.LoadAssets(function () {
     var game = scenesManager.createScene('intro_western', towngame.IntroWesternScene);
     var game = scenesManager.createScene('home', towngame.HomeScene);
     var game = scenesManager.createScene('world', towngame.WorldScene);
-    scenesManager.goToScene('intro');
+    var game = scenesManager.createScene('controls', towngame.ControlScene);
+    scenesManager.goToScene('controls');
 });
 //# sourceMappingURL=main.js.map
